@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — ExcursionAlert</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .logo img { width: 32px; height: 32px; border-radius: 6px; }
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+    h1 { font-size: 28px; font-weight: 800; margin-bottom: 8px; color: #0d2240; }
+    .updated { font-size: 13px; color: #888; margin-bottom: 40px; }
+    h2 { font-size: 17px; font-weight: 700; margin-top: 36px; margin-bottom: 10px; color: #0d2240; }
+    p { font-size: 15px; color: #333; margin-bottom: 12px; }
+    ul { margin: 8px 0 12px 20px; font-size: 15px; color: #333; }
+    ul li { margin-bottom: 6px; }
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: #aaa;
+      border-top: 1px solid #eee;
+    }
+    footer a { color: #aaa; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">
+      <img src="icon.png" alt="ExcursionAlert" />
+      ExcursionAlert
+    </a>
+  </header>
+
+  <div class="content">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 2026</p>
+
+    <p>ExcursionAlert is a browser extension that monitors Disney Cruise excursion availability. This policy explains what data the extension accesses, what stays on your device, and what — if anything — leaves it.</p>
+
+    <h2>What the extension accesses</h2>
+    <p>When you visit the Disney Cruise excursion page, ExcursionAlert reads the authentication tokens and session identifiers that your browser already holds as part of your normal Disney login session. It uses these to poll Disney's availability API on your behalf — the same requests the Disney website makes itself.</p>
+    <p>The extension also reads your excursion watchlist and party member names, which you configure directly in the extension.</p>
+
+    <h2>What stays on your device</h2>
+    <p>Everything, with two narrow exceptions below. Specifically:</p>
+    <ul>
+      <li>Your Disney authentication tokens (Bearer token, session ID, SWID) are held in browser memory only and are never written to disk or transmitted to any server we operate.</li>
+      <li>Your watchlist, party member names, and alert settings are stored locally in your browser using Chrome's storage API.</li>
+      <li>All availability polling happens directly from your browser to Disney's servers — no data passes through our infrastructure.</li>
+    </ul>
+
+    <h2>What leaves your device</h2>
+    <p>Two narrow cases:</p>
+    <ul>
+      <li><strong>License validation:</strong> When you activate a Cruise Pass license key, your license key and Disney reservation ID are sent to a Cloudflare Worker we operate solely to verify your license and bind it to your reservation. No personal information is transmitted. The reservation ID is a numeric booking reference, not a name or contact detail.</li>
+      <li><strong>Push notifications:</strong> If you configure ntfy push notifications, availability alerts are sent to ntfy.sh with your chosen topic name. We do not operate ntfy.sh. Review <a href="https://ntfy.sh/docs/privacy/" target="_blank">ntfy's privacy policy</a> for details on how they handle messages.</li>
+    </ul>
+
+    <h2>Purchases</h2>
+    <p>Cruise Pass purchases are processed by Gumroad. When you purchase, Gumroad collects your email address to deliver your license key. We do not receive or store your payment information or email address. Review <a href="https://gumroad.com/privacy" target="_blank">Gumroad's privacy policy</a> for details.</p>
+
+    <h2>Analytics and tracking</h2>
+    <p>ExcursionAlert contains no analytics, no tracking pixels, and no third-party scripts. We do not know who installs the extension or how they use it.</p>
+
+    <h2>Children's privacy</h2>
+    <p>ExcursionAlert is not directed at children under 13 and does not knowingly collect any information from children.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we make material changes to this policy, we will update the date at the top of this page.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Use the <a href="https://docs.google.com/forms/d/1YU5D1XU1G0lwJW78owTLMmDZdyxBLnEs6i3gVO3_bes/viewform" target="_blank">feedback form</a>.</p>
+  </div>
+
+  <footer>
+    <a href="/">excursionalert.com</a> &nbsp;·&nbsp; Not affiliated with Disney Cruise Line or The Walt Disney Company.
+  </footer>
+
+</body>
+</html>
