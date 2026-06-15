@@ -95,7 +95,57 @@
     }
     .btn-secondary:hover { background: #f0f4f8; }
 
-    /* How it works */
+    /* Browser availability */
+    .browsers {
+      text-align: center;
+      padding: 32px 24px 48px;
+      border-bottom: 1px solid #eee;
+    }
+    .browsers p {
+      font-size: 13px;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+    .browser-list {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .browser-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid #e5e9ef;
+      color: #1a1a1a;
+      transition: all 0.15s;
+    }
+    .browser-btn:hover { border-color: #0d2240; background: #f7f9fc; }
+    .browser-btn.coming-soon {
+      color: #aaa;
+      cursor: default;
+      pointer-events: none;
+    }
+    .browser-btn .badge {
+      font-size: 11px;
+      background: #f0f4f8;
+      color: #888;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .browser-btn .badge.live {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    /* Sections */
     .section {
       padding: 64px 24px;
       max-width: 900px;
@@ -108,6 +158,8 @@
       color: #0d2240;
       margin-bottom: 48px;
     }
+
+    /* How it works */
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -133,6 +185,80 @@
     .step h3 { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
     .step p { font-size: 14px; color: #555; }
 
+    /* Setup guide */
+    .setup-bg { background: #f7f9fc; }
+    .setup-steps {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .setup-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .setup-num {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #0d2240;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .setup-step h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .setup-step p { font-size: 14px; color: #555; margin-bottom: 8px; }
+    .setup-step p:last-child { margin-bottom: 0; }
+    .setup-step a { color: #0d2240; text-decoration: underline; }
+    .callout {
+      background: #fff;
+      border: 1.5px solid #e5e9ef;
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #555;
+      margin-top: 10px;
+    }
+    .callout strong { color: #1a1a1a; }
+
+    /* ntfy section */
+    .ntfy-steps {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .ntfy-steps ol {
+      padding-left: 20px;
+      font-size: 15px;
+      color: #444;
+    }
+    .ntfy-steps ol li {
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+    .ntfy-steps a { color: #0d2240; }
+    .ntfy-note {
+      margin-top: 28px;
+      padding: 16px 20px;
+      background: #f7f9fc;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+    code {
+      background: #f0f4f8;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: "SF Mono", "Fira Code", monospace;
+    }
+
     /* Pricing */
     .pricing-bg { background: #f7f9fc; }
     .pricing {
@@ -149,9 +275,7 @@
       padding: 32px;
       text-align: center;
     }
-    .plan.featured {
-      border-color: #0d2240;
-    }
+    .plan.featured { border-color: #0d2240; }
     .plan h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     .plan .price {
       font-size: 36px;
@@ -171,9 +295,7 @@
       font-size: 14px;
       color: #444;
     }
-    .plan ul li {
-      padding: 5px 0;
-    }
+    .plan ul li { padding: 5px 0; }
     .plan ul li::before {
       content: "✓  ";
       color: #1a7a3a;
@@ -207,6 +329,7 @@
     </a>
     <nav>
       <a href="#how-it-works">How it works</a>
+      <a href="#setup">Setup</a>
       <a href="#pricing">Pricing</a>
       <a href="/privacy.html">Privacy</a>
     </nav>
@@ -218,6 +341,24 @@
     <div class="hero-actions">
       <a href="https://chromewebstore.google.com" class="btn-primary">Add to Chrome — Free</a>
       <a href="/buy" class="btn-secondary">Get Cruise Pass — $9.99</a>
+    </div>
+  </div>
+
+  <div class="browsers">
+    <p>Available on</p>
+    <div class="browser-list">
+      <a href="https://chromewebstore.google.com" class="browser-btn">
+        Chrome <span class="badge live">Available</span>
+      </a>
+      <span class="browser-btn coming-soon">
+        Firefox <span class="badge">Coming soon</span>
+      </span>
+      <span class="browser-btn coming-soon">
+        Edge <span class="badge">Coming soon</span>
+      </span>
+      <span class="browser-btn coming-soon">
+        Safari <span class="badge">Coming soon</span>
+      </span>
     </div>
   </div>
 
@@ -237,7 +378,68 @@
       <div class="step">
         <div class="step-number">3</div>
         <h3>Get alerted instantly</h3>
-        <p>When a spot opens up, you get a browser notification and — if you've set up ntfy — an instant push notification on your phone.</p>
+        <p>When a spot opens up, you get a browser notification and — with Cruise Pass — an instant push notification on your phone.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="setup-bg">
+    <div class="section" id="setup">
+      <h2>Getting started</h2>
+      <div class="setup-steps">
+
+        <div class="setup-step">
+          <div class="setup-num">1</div>
+          <div>
+            <h3>Install the extension</h3>
+            <p>Add ExcursionAlert to Chrome from the Chrome Web Store. No account or sign-up required.</p>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="setup-num">2</div>
+          <div>
+            <h3>Visit your Disney Cruise excursion page</h3>
+            <p>Log in to <a href="https://disneycruise.disney.go.com" target="_blank">disneycruise.disney.go.com</a> and navigate to your booking's Port Adventures. ExcursionAlert automatically detects your session — you'll see your reservation number appear in the extension popup.</p>
+            <div class="callout"><strong>Important:</strong> You need to visit this page at least once each browser session for ExcursionAlert to pick up your login credentials. After that, it monitors in the background automatically.</div>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="setup-num">3</div>
+          <div>
+            <h3>Click "Watch Availability" on any excursion</h3>
+            <p>ExcursionAlert adds a Watch Availability button next to the Select button on every excursion card. Click it on anything you want to monitor — sold out, conflict-blocked, or just keeping an eye on.</p>
+            <p>You can filter by specific timeslots and choose which party members the slot needs to accommodate.</p>
+          </div>
+        </div>
+
+        <div class="setup-step">
+          <div class="setup-num">4</div>
+          <div>
+            <h3>Let it run</h3>
+            <p>ExcursionAlert checks availability every 5, 10, or 15 minutes (your choice). When a spot opens up, you'll get a browser notification immediately.</p>
+            <div class="callout"><strong>Keep a browser window open</strong> with your Disney Cruise tab loaded, or check back periodically — the extension polls while the tab is active. The more browsers you have open across devices, the better your coverage.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="ntfy">
+    <h2>Set up phone notifications (Cruise Pass)</h2>
+    <div class="ntfy-steps">
+      <p style="font-size:15px;color:#555;margin-bottom:28px;">With a Cruise Pass license, ExcursionAlert can send push notifications directly to your phone via <a href="https://ntfy.sh" target="_blank">ntfy</a> — a free, open-source notification service. This means you'll get alerted even if you step away from your computer.</p>
+      <ol>
+        <li>Download the free <strong>ntfy app</strong> on your phone — available for <a href="https://apps.apple.com/us/app/ntfy/id1625396347" target="_blank">iPhone</a> and <a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy" target="_blank">Android</a>.</li>
+        <li>Choose a unique topic name for yourself — something nobody else is likely to use, like <code>smith-family-alaska-2026</code>. You don't create an account; the topic name is the only identifier.</li>
+        <li>In the ntfy app, tap <strong>+</strong> and subscribe to your topic name.</li>
+        <li>In ExcursionAlert, open the popup, go to <strong>Settings</strong>, and enter your topic name in the "ntfy push to phone" field.</li>
+        <li>Click <strong>Send Test</strong> to confirm notifications are arriving on your phone, then save your settings.</li>
+      </ol>
+      <div class="ntfy-note">
+        <strong>Privacy note:</strong> ntfy topics are public by default — anyone who knows your topic name can subscribe to it. Choose something non-obvious. If you want end-to-end privacy, ntfy also supports self-hosted servers, but that's beyond the scope of most users.
       </div>
     </div>
   </div>
