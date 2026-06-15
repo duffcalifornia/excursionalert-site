@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ExcursionAlert - Never miss a Disney Cruise port adventure</title>
-  <meta name="description" content="ExcursionAlert monitors Disney Cruise excursion availability and alerts you the moment a spot opens up — even for sold-out adventures." />
+  <meta name="description" content="ExcursionAlert monitors Disney Cruise excursion availability and alerts you the moment a spot opens up - even for sold-out adventures." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -95,54 +95,85 @@
     }
     .btn-secondary:hover { background: #f0f4f8; }
 
-    /* Browser availability */
-    .browsers {
-      text-align: center;
-      padding: 32px 24px 48px;
-      border-bottom: 1px solid #eee;
+    /* Install dropdown */
+    .install-wrap {
+      position: relative;
+      display: inline-block;
     }
-    .browsers p {
-      font-size: 13px;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 20px;
-    }
-    .browser-list {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .browser-btn {
+    .install-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
+      gap: 10px;
+      padding: 14px 20px 14px 28px;
+      background: #0d2240;
+      color: #fff;
       border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .install-btn:hover { background: #1a3a60; }
+    .install-btn .chevron {
+      font-size: 11px;
+      opacity: 0.7;
+      transition: transform 0.15s;
+    }
+    .install-wrap.open .chevron { transform: rotate(180deg); }
+    .install-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      min-width: 100%;
+      background: #fff;
+      border: 1.5px solid #e5e9ef;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      z-index: 100;
+    }
+    .install-wrap.open .install-dropdown { display: block; }
+    .install-dropdown a,
+    .install-dropdown span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 16px;
       font-size: 14px;
       font-weight: 500;
       text-decoration: none;
-      border: 1.5px solid #e5e9ef;
       color: #1a1a1a;
-      transition: all 0.15s;
+      gap: 12px;
+      white-space: nowrap;
     }
-    .browser-btn:hover { border-color: #0d2240; background: #f7f9fc; }
-    .browser-btn.coming-soon {
-      color: #aaa;
-      cursor: default;
-      pointer-events: none;
-    }
-    .browser-btn .badge {
+    .install-dropdown a:hover { background: #f7f9fc; }
+    .install-dropdown span { color: #aaa; cursor: default; }
+    .install-dropdown .soon {
       font-size: 11px;
       background: #f0f4f8;
       color: #888;
       padding: 2px 6px;
       border-radius: 4px;
     }
-    .browser-btn .badge.live {
-      background: #e8f5e9;
-      color: #2e7d32;
+    .install-dropdown hr {
+      border: none;
+      border-top: 1px solid #eee;
+      margin: 0;
+    }
+
+    /* Browser availability */
+    .browsers {
+      text-align: center;
+      padding: 20px 24px 40px;
+      border-bottom: 1px solid #eee;
+    }
+    .browsers p {
+      font-size: 13px;
+      color: #bbb;
     }
 
     /* Sections */
@@ -274,7 +305,12 @@
       border-radius: 12px;
       padding: 32px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
     }
+    .plan ul { flex: 1; }
+    .plan .btn-primary { align-self: center; }
+    .plan .install-wrap { align-self: center; }
     .plan.featured { border-color: #0d2240; }
     .plan h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
     .plan .price {
@@ -339,27 +375,24 @@
     <h1>Never miss a Disney Cruise port adventure</h1>
     <p>ExcursionAlert watches sold-out excursions and alerts you the moment a spot opens up, so you can book before anyone else knows it's available.</p>
     <div class="hero-actions">
-      <a href="https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd" class="btn-primary">Add to Chrome: Free</a>
-      <a href="/buy" class="btn-secondary">Get Cruise Pass for $9.99</a>
+      <div class="install-wrap" id="install-wrap">
+        <button class="install-btn" id="install-btn" onclick="toggleInstall(event)">
+          <span id="install-label">Install - Free</span>
+          <span class="chevron">▼</span>
+        </button>
+        <div class="install-dropdown" id="install-dropdown">
+          <a href="https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd" id="opt-chrome">Chrome</a>
+          <hr />
+          <span id="opt-firefox">Firefox <span class="soon">Coming soon</span></span>
+          <span id="opt-edge">Edge <span class="soon">Coming soon</span></span>
+          <span id="opt-safari">Safari <span class="soon">Coming soon</span></span>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="browsers">
-    <p>Available on</p>
-    <div class="browser-list">
-      <a href="https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd" class="browser-btn">
-        Chrome <span class="badge live">Available</span>
-      </a>
-      <span class="browser-btn coming-soon">
-        Firefox <span class="badge">Coming soon</span>
-      </span>
-      <span class="browser-btn coming-soon">
-        Edge <span class="badge">Coming soon</span>
-      </span>
-      <span class="browser-btn coming-soon">
-        Safari <span class="badge">Coming soon</span>
-      </span>
-    </div>
+    <p>Available on Chrome &nbsp;·&nbsp; Firefox coming soon &nbsp;·&nbsp; Edge coming soon &nbsp;·&nbsp; Safari coming soon</p>
   </div>
 
   <div class="section" id="how-it-works">
@@ -441,14 +474,14 @@
     <div class="ntfy-steps">
       <p style="font-size:15px;color:#555;margin-bottom:28px;">With a Cruise Pass license, ExcursionAlert can send push notifications directly to your phone via <a href="https://ntfy.sh" target="_blank">ntfy</a> - a free, open-source notification service. This means you'll get alerted even if you step away from your computer.</p>
       <ol>
-        <li>Download the free <strong>ntfy app</strong> on your phone — available for <a href="https://apps.apple.com/us/app/ntfy/id1625396347" target="_blank">iPhone</a> and <a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy" target="_blank">Android</a>.</li>
-        <li>Choose a unique topic name for yourself — something nobody else is likely to use, like <code>smith-family-alaska-2026</code>. You don't create an account; the topic name is the only identifier.</li>
+        <li>Download the free <strong>ntfy app</strong> on your phone - available for <a href="https://apps.apple.com/us/app/ntfy/id1625396347" target="_blank">iPhone</a> and <a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy" target="_blank">Android</a>.</li>
+        <li>Choose a unique topic name for yourself - something nobody else is likely to use, like <code>smith-family-alaska-2026</code>. You don't create an account; the topic name is the only identifier.</li>
         <li>In the ntfy app, tap <strong>+</strong> and subscribe to your topic name.</li>
         <li>In ExcursionAlert, open the popup, go to <strong>Settings</strong>, and enter your topic name in the "ntfy push to phone" field.</li>
         <li>Click <strong>Send Test</strong> to confirm notifications are arriving on your phone, then save your settings.</li>
       </ol>
       <div class="ntfy-note">
-        <strong>Privacy note:</strong> ntfy topics are public by default — anyone who knows your topic name can subscribe to it. Choose something non-obvious. If you want end-to-end privacy, ntfy also supports self-hosted servers, but that's beyond the scope of most users.
+        <strong>Privacy note:</strong> ntfy topics are public by default - anyone who knows your topic name can subscribe to it. Choose something non-obvious. If you want end-to-end privacy, ntfy also supports self-hosted servers, but that's beyond the scope of most users.
       </div>
     </div>
   </div>
@@ -467,7 +500,19 @@
             <li>Timeslot filtering</li>
             <li>Conflict detection</li>
           </ul>
-          <a href="https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd" class="btn-primary">Add to Chrome</a>
+          <div class="install-wrap" id="p-install-wrap">
+            <button class="install-btn" id="p-install-btn">
+              <span id="p-install-label">Install - Free</span>
+              <span class="chevron">▼</span>
+            </button>
+            <div class="install-dropdown" id="p-install-dropdown">
+              <a href="https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd" id="p-opt-chrome">Chrome</a>
+              <hr />
+              <span id="p-opt-firefox">Firefox <span class="soon">Coming soon</span></span>
+              <span id="p-opt-edge">Edge <span class="soon">Coming soon</span></span>
+              <span id="p-opt-safari">Safari <span class="soon">Coming soon</span></span>
+            </div>
+          </div>
         </div>
         <div class="plan featured">
           <h3>Cruise Pass</h3>
@@ -494,5 +539,68 @@
     <p class="disclaimer">ExcursionAlert is an independent tool and is not affiliated with, endorsed by, or connected to Disney Cruise Line or The Walt Disney Company. © 2026 ExcursionAlert. All rights reserved.</p>
   </footer>
 
+  <script>
+    const BROWSERS = {
+      chrome:  { name: "Chrome",  url: "https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd", live: true },
+      firefox: { name: "Firefox", url: null, live: false },
+      edge:    { name: "Edge",    url: null, live: false },
+      safari:  { name: "Safari",  url: null, live: false },
+    };
+
+    function detectBrowser() {
+      const ua = navigator.userAgent;
+      if (ua.includes("Edg/"))     return "edge";
+      if (ua.includes("Firefox/")) return "firefox";
+      if (ua.includes("Chrome/"))  return "chrome";
+      if (ua.includes("Safari/"))  return "safari";
+      return "chrome";
+    }
+
+    const detected = detectBrowser();
+    const detectedBrowser = BROWSERS[detected];
+
+    function initInstallWrap(prefix, showFree) {
+      const wrap  = document.getElementById(prefix + "install-wrap");
+      const btn   = document.getElementById(prefix + "install-btn");
+      const label = document.getElementById(prefix + "install-label");
+      if (!wrap || !btn || !label) return;
+
+      if (detectedBrowser.live) {
+        label.textContent = "Install for " + detectedBrowser.name + (showFree ? " - Free" : "");
+      } else {
+        label.textContent = detectedBrowser.name + " - Coming soon";
+        btn.style.background = "#6b7c99";
+        btn.style.cursor = "default";
+      }
+
+      for (const [key, info] of Object.entries(BROWSERS)) {
+        const el = document.getElementById(prefix + "opt-" + key);
+        if (!el) continue;
+        if (info.live) {
+          const a = document.createElement("a");
+          a.href = info.url;
+          a.id = prefix + "opt-" + key;
+          a.textContent = info.name;
+          el.replaceWith(a);
+        }
+      }
+
+      btn.removeAttribute("onclick");
+      btn.addEventListener("click", function(e) {
+        if (e.target.classList.contains("chevron") || !detectedBrowser.live) {
+          wrap.classList.toggle("open");
+          return;
+        }
+        window.location.href = detectedBrowser.url;
+      });
+
+      document.addEventListener("click", function(e) {
+        if (!wrap.contains(e.target)) wrap.classList.remove("open");
+      });
+    }
+
+    initInstallWrap("", true);    // hero
+    initInstallWrap("p-", false); // pricing
+  </script>
 </body>
 </html>
