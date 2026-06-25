@@ -387,14 +387,13 @@
           <hr />
           <a href="https://addons.mozilla.org/en-US/firefox/addon/excursionalert/" id="opt-firefox">Firefox</a>
           <a href="https://microsoftedge.microsoft.com/addons/detail/ckbfnbhndcfjaicikdmgbnbnpnjmoekm" id="opt-edge">Edge</a>
-          <span id="opt-safari">Safari <span class="soon">Coming soon</span></span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="browsers">
-    <p>Available on Chrome &nbsp;·&nbsp; Firefox &nbsp;·&nbsp; Edge &nbsp;·&nbsp; Safari coming soon</p>
+    <p>Available on Chrome &nbsp;·&nbsp; Firefox &nbsp;·&nbsp; Edge</p>
   </div>
 
   <div class="section" id="how-it-works">
@@ -513,7 +512,6 @@
               <hr />
               <a href="https://addons.mozilla.org/en-US/firefox/addon/excursionalert/" id="p-opt-firefox">Firefox</a>
               <a href="https://microsoftedge.microsoft.com/addons/detail/ckbfnbhndcfjaicikdmgbnbnpnjmoekm" id="p-opt-edge">Edge</a>
-              <span id="p-opt-safari">Safari <span class="soon">Coming soon</span></span>
             </div>
           </div>
         </div>
@@ -547,7 +545,6 @@
       chrome:  { name: "Chrome",  url: "https://chromewebstore.google.com/detail/excursionalert/akcidopceofmnnikpffogdagmklcdebd", live: true },
       firefox: { name: "Firefox", url: "https://addons.mozilla.org/en-US/firefox/addon/excursionalert/", live: true },
       edge:    { name: "Edge",    url: "https://microsoftedge.microsoft.com/addons/detail/ckbfnbhndcfjaicikdmgbnbnpnjmoekm", live: true },
-      safari:  { name: "Safari",  url: null, live: false },
     };
 
     function detectBrowser() {
@@ -555,7 +552,6 @@
       if (ua.includes("Edg/"))     return "edge";
       if (ua.includes("Firefox/")) return "firefox";
       if (ua.includes("Chrome/"))  return "chrome";
-      if (ua.includes("Safari/"))  return "safari";
       return "chrome";
     }
 
