@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>ExcursionAlert</title>
+    <link>https://excursionalert.com/appcast.xml</link>
+    <item>
+      <title>Version 1.0</title>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+      <sparkle:version>1.0</sparkle:version>
+      <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <description><![CDATA[Initial release.]]></description>
+      <enclosure
+        url="https://excursionalert.com/downloads/ExcursionAlert-1.0.dmg"
+        sparkle:edSignature="DG1pXajf7/+84OKqW8MojR9wJ7qk0uY3S48ZrSsbjzdsqjlRvO323zDCJxSOL6NVoVgI2BWI/k0+FF34g0T6Dw=="
+        length="5150756"
+        type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
