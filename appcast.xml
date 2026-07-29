@@ -4,6 +4,19 @@
     <title>ExcursionAlert</title>
     <link>https://excursionalert.com/appcast.xml</link>
     <item>
+      <title>Version 1.1</title>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+      <sparkle:version>1.1</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <description><![CDATA[Bug fixes and improvements.]]></description>
+      <enclosure
+        url="https://excursionalert.com/downloads/ExcursionAlert-1.1.dmg"
+        sparkle:edSignature="OLqdE0GvU1JQ0HmpUn/s5JYU6RY6INVNAcJh6jyvpcMtrB/bJGarLQeSzV9V2o05fbjmd8tjRlkmaFcH9ucoAg=="
+        length="5151034"
+        type="application/octet-stream" />
+    </item>
+    <item>
       <title>Version 1.0</title>
       <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
       <sparkle:version>1.0</sparkle:version>
