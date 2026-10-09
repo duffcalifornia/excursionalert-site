@@ -11,7 +11,7 @@
       <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
       <description><![CDATA[Bug fixes and improvements.]]></description>
       <enclosure
-        url="https://excursionalert.com/downloads/ExcursionAlert-1.1.dmg"
+        url="https://github.com/duffcalifornia/excursionalert-site/releases/download/v1.1/ExcursionAlert-1.1.dmg"
         sparkle:edSignature="Btk82WFdt0ewGVM9Fkec335rHNvutrF0RRN17dMa9PcIwn48tgF9iSHMEoQr3Alw8RWavLRJ5q+tbWGw/RwKDw=="
         length="1315567"
         type="application/octet-stream" />
