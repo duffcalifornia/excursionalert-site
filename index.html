@@ -309,10 +309,11 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
-      max-width: 640px;
+      max-width: 980px;
       margin: 0 auto;
     }
     .plan {
+      position: relative;
       background: #fff;
       border: 2px solid #e5e9ef;
       border-radius: 12px;
@@ -331,6 +332,23 @@
       font-weight: 800;
       color: #0d2240;
       margin-bottom: 4px;
+    }
+    .plan .price-was {
+      text-decoration: line-through;
+      margin-right: 4px;
+    }
+    .plan-tag {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #0d2240;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
     }
     .plan .price-note {
       font-size: 13px;
@@ -549,6 +567,18 @@
             <li>Phone push notifications</li>
           </ul>
           <a href="/buy" class="btn-primary">Get Excursion Pass</a>
+        </div>
+        <div class="plan featured">
+          <div class="plan-tag">Best value</div>
+          <h3>Cruise Pass</h3>
+          <div class="price">$14.99</div>
+          <div class="price-note"><span class="price-was">$19.98</span> One-time, two license keys</div>
+          <ul>
+            <li>Everything in an Excursion Pass</li>
+            <li>Plus a Room Pass for <a href="https://stateroomscout.com" target="_blank" rel="noopener">Stateroom Scout</a>: alerts when the stateroom you want opens up, or when your booked category's price drops</li>
+            <li>Use them on the same cruise or on two different ones</li>
+          </ul>
+          <a href="https://duffcalifornia.gumroad.com/l/rczrh" class="btn-primary">Get Cruise Pass</a>
         </div>
       </div>
       <div class="wom-note">
