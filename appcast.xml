@@ -7,7 +7,7 @@
       <title>Version 1.1.3</title>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0000</pubDate>
       <sparkle:version>1.1.3</sparkle:version>
-      <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+      <sparkle:shortVersionString>6</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
       <description><![CDATA[Fixed a bug that where too many alerts could cause the automatic checking process to fail]]></description>
       <enclosure
@@ -19,7 +19,7 @@
     <item>
       <title>Version 1.1</title>
       <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
-      <sparkle:version>1.1</sparkle:version>
+      <sparkle:version>5</sparkle:version>
       <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>13.0</sparkle:minimumSystemVersion>
       <description><![CDATA[Bug fixes and improvements.]]></description>
@@ -32,7 +32,7 @@
     <item>
       <title>Version 1.0</title>
       <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
-      <sparkle:version>1.0</sparkle:version>
+      <sparkle:version>4</sparkle:version>
       <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
       <description><![CDATA[Initial release.]]></description>
