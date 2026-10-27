@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — ExcursionAlert</title>
+  <title>Privacy Policy - ExcursionAlert</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -60,27 +60,29 @@
 
   <div class="content">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: October 2026</p>
+    <p class="updated">Last updated: October 26, 2026</p>
 
-    <p>ExcursionAlert is a browser extension that monitors Disney Cruise excursion availability. This policy explains what data the extension accesses, what stays on your device, and what — if anything — leaves it.</p>
+    <p>ExcursionAlert is a browser extension that monitors Disney Cruise excursion availability. This policy explains what data the extension accesses, what stays on your device, and what, if anything, leaves it.</p>
 
     <h2>What the extension accesses</h2>
-    <p>When you visit the Disney Cruise excursion page, ExcursionAlert reads the authentication tokens and session identifiers that your browser already holds as part of your normal Disney login session. It uses these to poll Disney's availability API on your behalf — the same requests the Disney website makes itself.</p>
-    <p>The extension also reads your excursion watchlist and party member names, which you configure directly in the extension.</p>
+    <p>When you visit the Disney Cruise excursion page, ExcursionAlert reads the authentication tokens and session identifiers that your browser already holds as part of your normal Disney login session. It uses these to poll Disney's availability API on your behalf, using the same requests the Disney website makes itself.</p>
+    <p>When you open an activity's guest selection on Disney's site, the extension also reads your party as Disney lists it: each guest's name, age, whether they're an adult, and which activities they've already booked. It uses this so you can choose who each alert is for, and to tell when a "conflict" is just your own existing booking. It also reads Disney's list of activities for the day you're viewing.</p>
 
     <h2>What stays on your device</h2>
-    <p>Everything, with two narrow exceptions below. Specifically:</p>
+    <p>Everything, with three narrow exceptions below. Specifically:</p>
     <ul>
       <li>Your Disney authentication tokens (Bearer token, session ID, SWID) are held in browser memory only and are never written to disk or transmitted to any server we operate.</li>
-      <li>Your watchlist, party member names, and alert settings are stored locally in your browser using Chrome's storage API.</li>
-      <li>All availability polling happens directly from your browser to Disney's servers — no data passes through our infrastructure.</li>
+      <li>Your watchlist, party details, and alert settings are stored locally in your browser's extension storage.</li>
+      <li>All availability polling happens directly from your browser to Disney's servers. No data passes through our infrastructure.</li>
+      <li><strong>Troubleshooting log:</strong> the extension keeps a record of its availability checks from the past 7 days, plus the latest copy of Disney's activity list and party details, so problems can be diagnosed if you ask for help. Your Disney login tokens, session IDs, license key, and ntfy topic are removed before anything is saved, and guests are recorded as "Passenger 1," "Passenger 2," and so on, never by name. The log never leaves your browser on its own.</li>
     </ul>
 
     <h2>What leaves your device</h2>
-    <p>Two narrow cases:</p>
+    <p>Three narrow cases:</p>
     <ul>
       <li><strong>License validation:</strong> When you activate an Excursion Pass license key, your license key and Disney reservation ID are sent to a Cloudflare Worker we operate solely to verify your license and bind it to your reservation. No personal information is transmitted. The reservation ID is a numeric booking reference, not a name or contact detail.</li>
       <li><strong>Push notifications:</strong> If you configure ntfy push notifications, availability alerts are sent to ntfy.sh with your chosen topic name. We do not operate ntfy.sh. Review <a href="https://ntfy.sh/docs/privacy/" target="_blank">ntfy's privacy policy</a> for details on how they handle messages.</li>
+      <li><strong>Troubleshooting logs you choose to send:</strong> clicking <strong>Save troubleshooting log</strong> saves a file to your computer. It contains your alerts, your party's ages and booked activities, your reservation number, and what Disney returned for recent checks. It contains no names, login details, license key, or ntfy topic. It reaches us only if you email it to us. We use it only to resolve your support request, and we delete it once your issue is resolved.</li>
     </ul>
 
     <h2>Purchases</h2>
