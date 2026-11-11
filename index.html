@@ -167,6 +167,16 @@
       margin: 0;
     }
 
+    /* Mobile visitors: the extension only runs on desktop browsers */
+    .install-btn.mobile { padding: 14px 28px; }
+    .mobile-note {
+      flex-basis: 100%;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+
     /* Browser availability */
     .browsers {
       text-align: center;
@@ -612,14 +622,52 @@
       return "chrome";
     }
 
+    // Phones and tablets can't run desktop browser extensions. iPadOS reports
+    // itself as a Mac, and touchscreen Macs also report touch points, so a
+    // "Mac" only counts as an iPad when touch is its primary input. A touchscreen
+    // Mac's primary pointer is its trackpad or mouse, which reports as "fine".
+    // When unsure, fall back to the desktop install buttons.
+    function isMobile() {
+      const ua = navigator.userAgent;
+      if (/Android|iPhone|iPad|iPod|Mobile/i.test(ua)) return true;
+      if (!/Macintosh/.test(ua) || navigator.maxTouchPoints <= 1) return false;
+      return window.matchMedia("(pointer: coarse)").matches;
+    }
+
     const detected = detectBrowser();
     const detectedBrowser = BROWSERS[detected];
+    const mobile = isMobile();
+
+    // Opens the visitor's own email app with the link filled in; nothing is sent to us.
+    const EMAIL_LINK = "mailto:?subject=" + encodeURIComponent("ExcursionAlert - install on my computer") +
+      "&body=" + encodeURIComponent("Install ExcursionAlert from a desktop browser: https://excursionalert.com/");
+
+    function initMobileWrap(wrap, btn, label) {
+      label.textContent = "Email myself the link";
+      const chevron = btn.querySelector(".chevron");
+      if (chevron) chevron.remove();
+      btn.classList.add("mobile");
+      btn.removeAttribute("onclick");
+      btn.addEventListener("click", function() {
+        window.location.href = EMAIL_LINK;
+      });
+
+      const note = document.createElement("div");
+      note.className = "mobile-note";
+      note.textContent = "ExcursionAlert is a browser extension for computers (Chrome, Firefox, Edge, or Safari on Mac). It can't be installed on a phone or tablet.";
+      wrap.after(note);
+    }
 
     function initInstallWrap(prefix, showFree) {
       const wrap  = document.getElementById(prefix + "install-wrap");
       const btn   = document.getElementById(prefix + "install-btn");
       const label = document.getElementById(prefix + "install-label");
       if (!wrap || !btn || !label) return;
+
+      if (mobile) {
+        initMobileWrap(wrap, btn, label);
+        return;
+      }
 
       if (detectedBrowser.live) {
         label.textContent = "Install for " + detectedBrowser.name + (showFree ? " - Free" : "");
